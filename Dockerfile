@@ -48,13 +48,13 @@ RUN apt-get update -qq \
 		openjdk-7-jdk \
  && apt-get clean
  
-### install Elasticsearch plougins
+### install Elasticsearch plogins
 
 ENV ES_HOME /usr/share/elasticsearch
 WORKDIR ${ES_HOME}
 
 RUN gosu elasticsearch bin/plugin install cloud-aws
-RUN gosu elasticsearch bin/plugin install royrusso/elasticsearch-HQ
+RUN gosu elasticsearch bin/plugin install karmi/elasticsearch-paramedic
 
 ### install Logstash
 
@@ -144,6 +144,6 @@ ADD ./start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE 5601 9200 9300 5000 5044
-VOLUME /var/lib/elasticsearch
+### VOLUME /var/lib/elasticsearch
 
 CMD [ "/usr/local/bin/start.sh" ]
