@@ -54,7 +54,7 @@ ENV ES_HOME /usr/share/elasticsearch
 WORKDIR ${ES_HOME}
 
 RUN gosu elasticsearch bin/plugin install cloud-aws
-RUN gosu elasticsearch bin/plugin install karmi/elasticsearch-paramedic
+RUN gosu elasticsearch bin/plugin install royrusso/elasticsearch-HQ
 
 ### install Logstash
 
